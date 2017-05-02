@@ -1,10 +1,10 @@
-# drone-win-mon
+# win-eye
 
 Drone CI build monitor for Windows
 
 ## Quick Start
 
-Ensure you have a file at `%UserProfile%\.config\drone-win-mon\.env`. This is an example with the required variables, fill in your own values.
+Ensure you have a file at `%UserProfile%\.config\win-eye\.env`. This is an example with the required variables, fill in your own values.
 
 ```
 DRONE_URL=https://drone.example.com

@@ -26,7 +26,7 @@ namespace drone_win_mon
 
         public static EnvConfig LoadFromEnvironment()
         {
-            var envFilePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".config", "drone-win-mon", ".env");
+            var envFilePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".config", "win-eye", ".env");
             var env = DotEnvFile.DotEnvFile.LoadFile(envFilePath, true);
             DotEnvFile.DotEnvFile.InjectIntoEnvironment(env);
 
