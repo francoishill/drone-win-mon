@@ -1,9 +1,9 @@
-using win_eye.Drone;
 using GalaSoft.MvvmLight;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
+using win_eye.Plugins;
+using win_eye.Plugins.DroneCI.BuildStatus;
 
 namespace win_eye.ViewModel
 {
@@ -21,26 +21,22 @@ namespace win_eye.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        private readonly EnvConfig m_EnvConfig;
+        private readonly List<IPluginCollector> m_PluginCollectors = new List<IPluginCollector>()
+        {
+            new BuildStatussesPluginCollector(),
+        };
 
-        private readonly ObservableCollection<BuildStatusViewModel> m_BuildStatusViewModels;
-        public ICollection<BuildStatusViewModel> BuildStatusViewModels => m_BuildStatusViewModels;
+        private readonly ObservableCollection<PluginViewModel> m_PluginViewModels;
+        public ICollection<PluginViewModel> PluginViewModels => m_PluginViewModels;
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            //TODO: Why is this needed for valid https/ssl website?
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-            m_EnvConfig = EnvConfig.LoadFromEnvironment();
-
-            m_BuildStatusViewModels = new ObservableCollection<BuildStatusViewModel>(
-                m_EnvConfig.DroneRepoPaths.Select(
-                repoPath => {
-                    return new BuildStatusViewModel(new BuildWatcher(m_EnvConfig.DroneURL, m_EnvConfig.DroneToken, repoPath));
-                }).ToList());
+            var pluginViewModels = GetPlugins()
+                .Select(p => new PluginViewModel(p));
+            m_PluginViewModels = new ObservableCollection<PluginViewModel>(pluginViewModels);
 
             ////if (IsInDesignMode)
             ////{
@@ -50,6 +46,17 @@ namespace win_eye.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+        }
+
+        private ICollection<IPlugin> GetPlugins()
+        {
+            var list = new List<IPlugin>();
+            foreach (var collector in m_PluginCollectors)
+            {
+                list.AddRange(collector.Collect());
+            }
+
+            return list;
         }
     }
 }

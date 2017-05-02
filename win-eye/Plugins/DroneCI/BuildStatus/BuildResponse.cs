@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace win_eye.Drone
+﻿namespace win_eye.Plugins.DroneCI.BuildStatus
 {
     public class BuildResponse
     {

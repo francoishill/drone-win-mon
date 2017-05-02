@@ -12,6 +12,7 @@ DRONE_TOKEN=token
 DRONE_REPO_PATHS=owner1/repo1,owner1/repo2
 ```
 
-## Future Goals
+## BYO plugin (bring your own plugin)
 
-* Consider exanding this basic UI to support plugins. So to have some generic IIndicator which is shown as Green/Red and the implementation(s) could be anything, including Drone Builds.
+* Implement interfaces `IPluginCollector` and `IPlugin`
+* Add your collector to `MainViewModel->m_PluginCollectors` variable.

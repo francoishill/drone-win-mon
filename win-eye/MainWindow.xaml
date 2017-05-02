@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:win_eye.ViewModel"
+        xmlns:localPlugins="clr-namespace:win_eye.Plugins"
         mc:Ignorable="d"
         Title="Latest Build Status" Height="150" Width="300"
         WindowStartupLocation="Manual"
@@ -15,14 +16,14 @@
     
     <Grid>
         <ListView 
-            ItemsSource="{Binding BuildStatusViewModels}"
+            ItemsSource="{Binding PluginViewModels}"
             FontSize="11">
             <ListView.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:BuildStatusViewModel}">
+                <DataTemplate DataType="{x:Type localPlugins:PluginViewModel}">
                     <Grid>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock 
-                                Text="{Binding RepoAndOwner}" />
+                                Text="{Binding DisplayName}" />
                             <TextBlock 
                                 x:Name="m_Status" 
                                 Margin="5 0 0 0"

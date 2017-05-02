@@ -1,17 +1,17 @@
-﻿using win_eye.Drone;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using win_eye.Plugins;
 
-namespace win_eye.ViewModel
+namespace win_eye.Plugins
 {
-    public class BuildStatusViewModel : GalaSoft.MvvmLight.ViewModelBase
+    public class PluginViewModel : GalaSoft.MvvmLight.ViewModelBase
     {
-        private BuildWatcher m_BuildWatcher;
+        private IPlugin m_Plugin;
 
-        public BuildStatusViewModel(BuildWatcher buildWatcher)
+        public PluginViewModel(IPlugin plugin)
         {
-            m_BuildWatcher = buildWatcher;
+            m_Plugin = plugin;
 
             ContinuallyRefresh();
         }
@@ -22,7 +22,7 @@ namespace win_eye.ViewModel
             {
                 var stopWatch = Stopwatch.StartNew();
 
-                await m_BuildWatcher.DoRefresh();
+                await m_Plugin.Refresh();
 
                 stopWatch.Stop();
                 if (stopWatch.Elapsed < TimeSpan.FromSeconds(3))
@@ -30,15 +30,15 @@ namespace win_eye.ViewModel
                     await Task.Delay(TimeSpan.FromSeconds(2));
                 }
 
-                Status = m_BuildWatcher.CurrentStatus.ToString();
-                HasProblem = m_BuildWatcher.CurrentStatus != BuildWatcher.BuildStatus.Success;
-                IsSuccessful = m_BuildWatcher.CurrentStatus == BuildWatcher.BuildStatus.Success;
+                Status = m_Plugin.CurrentStatus().ToString();
+                HasProblem = m_Plugin.CurrentStatus() != PluginStatusEnum.Success;
+                IsSuccessful = m_Plugin.CurrentStatus() == PluginStatusEnum.Success;
             }
         }
 
-        public string RepoAndOwner => m_BuildWatcher.RepoOwnerAndName;
+        public string DisplayName => m_Plugin.DisplayName();
 
-        private string m_Status = BuildWatcher.BuildStatus.Unknown.ToString();
+        private string m_Status = PluginStatusEnum.Unknown.ToString();
         public string Status
         {
             get

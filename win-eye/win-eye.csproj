@@ -80,7 +80,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\BuildStatusViewModel.cs" />
+    <Compile Include="Plugins\DroneCI\BuildStatus\BuildStatusPlugin.cs" />
+    <Compile Include="Plugins\DroneCI\BuildStatus\BuildStatussesPluginCollector.cs" />
+    <Compile Include="Plugins\IPlugin.cs" />
+    <Compile Include="Plugins\IPluginCollector.cs" />
+    <Compile Include="Plugins\PluginStatusEnum.cs" />
+    <Compile Include="Plugins\PluginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -91,9 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Drone\BuildWatcher.cs" />
-    <Compile Include="Drone\BuildResponse.cs" />
-    <Compile Include="EnvConfig.cs" />
+    <Compile Include="Plugins\DroneCI\BuildStatus\BuildResponse.cs" />
+    <Compile Include="Plugins\DroneCI\BuildStatus\EnvConfig.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

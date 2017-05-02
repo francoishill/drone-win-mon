@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace win_eye
+namespace win_eye.Plugins.DroneCI.BuildStatus
 {
     public class EnvConfig
     {
