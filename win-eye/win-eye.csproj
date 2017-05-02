@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1BE44C2D-F35F-43AB-BDF1-2D5EB5D92EF2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>drone_win_mon</RootNamespace>
+    <RootNamespace>win_eye</RootNamespace>
     <AssemblyName>win-eye</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

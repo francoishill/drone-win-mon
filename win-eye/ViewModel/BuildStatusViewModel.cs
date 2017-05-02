@@ -1,9 +1,9 @@
-﻿using drone_win_mon.Drone;
+﻿using win_eye.Drone;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace drone_win_mon.ViewModel
+namespace win_eye.ViewModel
 {
     public class BuildStatusViewModel : GalaSoft.MvvmLight.ViewModelBase
     {

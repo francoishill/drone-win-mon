@@ -1,7 +1,7 @@
 /*
   In App.xaml:
   <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:drone_win_mon"
+      <vm:ViewModelLocator xmlns:vm="clr-namespace:win_eye"
                            x:Key="Locator" />
   </Application.Resources>
   
@@ -16,7 +16,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
-namespace drone_win_mon.ViewModel
+namespace win_eye.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace drone_win_mon
+namespace win_eye
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

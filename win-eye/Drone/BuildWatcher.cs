@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace drone_win_mon.Drone
+namespace win_eye.Drone
 {
     public class BuildWatcher
     {

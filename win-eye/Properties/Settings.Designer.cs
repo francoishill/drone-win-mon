@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace drone_win_mon.Properties {
+namespace win_eye.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

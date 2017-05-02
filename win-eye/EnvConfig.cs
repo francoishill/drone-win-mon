@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace drone_win_mon
+namespace win_eye
 {
     public class EnvConfig
     {

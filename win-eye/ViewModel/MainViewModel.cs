@@ -1,11 +1,11 @@
-using drone_win_mon.Drone;
+using win_eye.Drone;
 using GalaSoft.MvvmLight;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 
-namespace drone_win_mon.ViewModel
+namespace win_eye.ViewModel
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.
